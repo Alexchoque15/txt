@@ -27,8 +27,18 @@ init_db()
 # LISTAR
 @app.route('/')
 def index():
+    buscar = request.args.get('buscar')
+
     conn = get_db_connection()
-    productos = conn.execute('SELECT * FROM productos').fetchall()
+
+    if buscar:
+        productos = conn.execute(
+            "SELECT * FROM productos WHERE nombre LIKE ? OR categoria LIKE ?",
+            ('%' + buscar + '%', '%' + buscar + '%')
+        ).fetchall()
+    else:
+        productos = conn.execute('SELECT * FROM productos').fetchall()
+
     conn.close()
     return render_template('index.html', productos=productos)
 

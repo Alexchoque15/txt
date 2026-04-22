@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
 <div class="d-flex justify-content-between mb-3">
     <h2>Productos</h2>
     <a href="/crear" class="btn btn-success">
@@ -9,7 +9,7 @@
 </div>
 
 <form method="GET" class="mb-3 d-flex">
-    <input type="text" name="buscar" class="form-control me-2" placeholder="Buscar...">
+    <input type="text" name="buscar" class="form-control me-2" placeholder="Buscar producto...">
     <button class="btn btn-primary">
         <i class="bi bi-search"></i>
     </button>
@@ -37,4 +37,5 @@
         {% endfor %}
     </tbody>
 </table>
+
 {% endblock %}

@@ -2,19 +2,6 @@ body {
     background-color: #eef1f5;
 }
 
-.navbar {
-    letter-spacing: 0.5px;
-}
-
-h2 {
-    color: #2c3e50;
-}
-
 .card {
     border-radius: 10px;
-    border: none;
-}
-
-.table th, .table td {
-    vertical-align: middle;
 }

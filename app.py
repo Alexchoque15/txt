@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'clave_secreta'
 
-# ---------------- BD ----------------
+# ---------------- DB ----------------
 def get_db_connection():
     conn = sqlite3.connect('inventario.db')
     conn.row_factory = sqlite3.Row
@@ -52,7 +52,6 @@ def crear():
         precio = request.form['precio']
         stock = request.form['stock']
 
-        # VALIDACIONES
         if not nombre or not categoria or not precio or not stock:
             flash('Todos los campos son obligatorios', 'danger')
             return redirect(url_for('crear'))
@@ -131,4 +130,4 @@ def dashboard():
 
 # ---------------- RUN ----------------
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000, debug=True)
+    app.run(debug=True)
